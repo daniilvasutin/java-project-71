@@ -17,16 +17,19 @@ import java.nio.file.Files;
 import java.security.MessageDigest;
 import java.util.concurrent.Callable;
 
-@Command(name = "gendiff", mixinStandardHelpOptions = true, version = "checksum 4.0",
+@Command(name = "gendiff", mixinStandardHelpOptions = true, version = "gendiff 1.0",
         description = "Compares two configuration files and shows a difference.")
 public class App implements Callable<Integer>{
 
 
-//    @Parameters(index = "0", description = "The file whose checksum to calculate.")
-//    private File file;
+    @Parameters(index = "0", paramLabel="filepath1", description = "path to first file")
+    private File filepath1;
+    @Parameters(index = "1", paramLabel="filepath2",description = "path to second file")
+    private File filepath2;
+
 //
-//    @Option(names = {"-a", "--algorithm"}, description = "MD5, SHA-1, SHA-256, ...")
-//    private String algorithm = "SHA-256";
+    @Option(names = {"-f", "--format"}, description = "output format [default: stylish]")
+    private String format = "";
 //
     @Override
     public Integer call() throws Exception { // your business logic goes here...
