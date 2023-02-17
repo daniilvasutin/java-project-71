@@ -33,7 +33,7 @@ public class App implements Callable<Integer> {
 
     @Parameters(index = "0", paramLabel="filepath1", description = "path to first file", defaultValue = "file1.json") ///Users/daniilvasutin/java-project-71/app/src/main/java/hexlet/code/exFile1.json
     private File filepath1;// = new File("file1.json");
-    @Parameters(index = "1", paramLabel="filepath2",description = "path to second file", defaultValue = "file2.json")
+    @Parameters(index = "1", paramLabel="filepath2", description = "path to second file", defaultValue = "file2.json")
     private File filepath2;// = new File("file2.json");
 
 //
