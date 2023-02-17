@@ -49,7 +49,7 @@ public class Differ {
                     difList.add(new Item<>(key, map2.get(key), "+"));
                 }
             }
-            if (!map1.containsKey(key)) { // в первом нет ключа второго
+            if (!map1.containsKey(key)) { // в первом нет ключа второго dsa
                 difList.add(new Item<>(key, map2.get(key), "+"));
             }
         }
