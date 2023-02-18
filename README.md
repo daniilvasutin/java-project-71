@@ -5,4 +5,4 @@
 [![Java CI](https://github.com/daniilvasutin/java-project-71/actions/workflows/CI%20main.yml/badge.svg)](https://github.com/daniilvasutin/java-project-71/actions/workflows/CI%20main.yml)
 <br>
   
-[![asciicast]](https://asciinema.org/a/W0WvkmPW27ABjBRtnS1jQZJny)
+[5 шаг - ](https://asciinema.org/a/W0WvkmPW27ABjBRtnS1jQZJny)
