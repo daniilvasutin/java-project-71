@@ -2,18 +2,18 @@ package hexlet.code;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.File;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
 public class Differ {
-    public static String generate(File file1, File file2) throws Exception {
+    public static String generate(Path file1, Path file2) throws Exception {
 
-        byte[] fileContents1 = Files.readAllBytes(file1.toPath());
-        byte[] fileContents2 = Files.readAllBytes(file2.toPath());
+        byte[] fileContents1 = Files.readAllBytes(file1);
+        byte[] fileContents2 = Files.readAllBytes(file2);
 
         ObjectMapper mapper = new ObjectMapper();
         Map<String, Object> map1 = mapper.readValue(fileContents1, Map.class);

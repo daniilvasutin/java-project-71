@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'application'
     id 'checkstyle'
+    id 'jacoco'
 }
 
 group 'hexlet.code'
@@ -9,6 +10,14 @@ version '1.0-SNAPSHOT'
 
 application {
     mainClass = 'hexlet.code.App'
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
 }
 
 repositories {

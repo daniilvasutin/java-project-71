@@ -3,10 +3,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.ListIterator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 
@@ -15,14 +17,14 @@ public class TestApp {
     private static ArrayList<Integer> testInstance;
     private static ListIterator<Integer> listIterator;
 
-    private static File file1;
-    private static File file2;
+    private static Path file1;
+    private static Path file2;
 
     @BeforeAll
     public static void setUp() {
 
-        file1 = new File("file1.json");
-        file2 = new File("file2.json");
+        file1 = Path.of("file1.json");
+        file2 = Path.of("file2.json");
 
         testInstance = new ArrayList<>();
         listIterator = testInstance.listIterator();
@@ -33,8 +35,20 @@ public class TestApp {
     public void testGenDiff() throws Exception {
 
         String str1 = Differ.generate(file1, file2);
-
         assertEquals(str1, Differ.generate(file1, file2));
+    }
+
+    @Test
+    public void testFilePath() {
+
+        String path = "src/test/resources";
+
+        File file = new File(path);
+        String absolutePath = file.getAbsolutePath();
+
+        System.out.println(absolutePath);
+
+        assertTrue(absolutePath.endsWith("src/test/resources"));
     }
 
     @Test
