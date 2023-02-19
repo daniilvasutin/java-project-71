@@ -22,7 +22,6 @@ jobs:
         with:
           arguments: build
           build-root-directory: app
-      - name: Publish code coverage
       - name: Test & publish code coverage
         # Publish code coverage on Code Climate
         # https://github.com/paambaati/codeclimate-action
