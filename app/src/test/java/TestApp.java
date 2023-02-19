@@ -41,7 +41,10 @@ public class TestApp {
         assertEquals(str1, Differ.generate(Parser.parseFile(file1, file2)));
     }
 
-//проверить парсер
+// проверить парсер
+// Напишите тесты. Тесты на вложенные структуры полностью покрывают плоские. >
+// Последние можно уже не тестировать
+
     @Test
     public void testGenDiffForYML() throws Exception {
 

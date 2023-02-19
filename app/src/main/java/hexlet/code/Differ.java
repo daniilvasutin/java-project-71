@@ -14,16 +14,25 @@ public class Differ {
         List<Item<String, Object>> sortedDifList = difList.stream()
                 .sorted(Comparator.comparing(Item::getKey)).toList();
 
-        return diffToString(sortedDifList);
+        return diffToString(sortedDifList, "stylish");
     }
 
-    private static String diffToString(List<Item<String, Object>> sortedDifList) {
+    public static String diffToString(List<Item<String, Object>> sortedDifList, String format) {
 
         StringBuilder result = new StringBuilder("{\n");
-        for (var item : sortedDifList) {
-            result.append(item.status).append(" ").append(item.key).append(": ").append(item.value).append("\n");
+        if (format.equals("stylish")) {
+            for (var item : sortedDifList) {
+                result.append(" ".repeat(4))
+                        .append(item.status)
+                        .append(" ")
+                        .append(item.key)
+                        .append(": ")
+                        .append(item.value)
+                        .append("\n");
+            }
+            result.append("}");
         }
-        result.append("}");
+
         return result.toString();
     }
 
@@ -32,9 +41,11 @@ public class Differ {
         List<Item<String, Object>> difList = new ArrayList<>();
         for (var key : map2.keySet()) {
             if (map1.containsKey(key)) {
-                if (map1.get(key).equals(map2.get(key))) { //значения равны
+                var item1 = map1.get(key);
+                var item2 = map2.get(key);
+                if (Utils.equalsWithNulls(item1, item2)) { //значения равны
                     difList.add(new Item<>(key, map1.get(key), " "));
-                } else if (!map1.get(key).equals(map2.get(key))) { //значения НЕ равны
+                } else if (!Utils.equalsWithNulls(item1, item2)) { //значения НЕ равны
                     difList.add(new Item<>(key, map1.get(key), "-"));
                     difList.add(new Item<>(key, map2.get(key), "+"));
                 }

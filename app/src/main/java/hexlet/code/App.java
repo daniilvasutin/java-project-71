@@ -15,16 +15,16 @@ import java.util.concurrent.Callable;
 public class App implements Callable<Integer> {
 
     @Parameters(index = "0", paramLabel = "filepath1",
-            description = "path to first file", defaultValue = "file1.yml")
+            description = "path to first file", defaultValue = "file1long.yml")
             //"src/test/resources/file1.json")
     ///Users/daniilvasutin/java-project-71/app/src/main/java/hexlet/code/exFile1.json
     private static Path file1;
     @Parameters(index = "1", paramLabel = "filepath2",
-            description = "path to second file", defaultValue = "file2.yml")
+            description = "path to second file", defaultValue = "file2long.yml")
     private static Path file2;
 
-    @Option(names = {"-f", "--format"}, description = "output format [default: stylish]")
-    private String format = "";
+    @Option(names = {"-f", "--format"}, description = "output format [default: stylish]", defaultValue = "stylish")
+    private String format;
 
     @Override
     public Integer call() throws Exception { // your business logic goes here...
