@@ -22,13 +22,13 @@ jobs:
         with:
           arguments: build
           build-root-directory: app
-      - name: Test & publish code coverage
+      #- name: Test & publish code coverage
         # Publish code coverage on Code Climate
         # https://github.com/paambaati/codeclimate-action
-        uses: paambaati/codeclimate-action@v3.0.0
+       # uses: paambaati/codeclimate-action@v3.0.0
         # Add Code Climate secret key
-        env:
-          SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}
+        #env:
+         # SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}
         #with:
          # coverageCommand: make test-coverage
           #debug: true
@@ -36,7 +36,14 @@ jobs:
       #uses: paambaati/codeclimate-action@v3.0.0
       #env:
       #  MYSECRET: ${{ secrets.SECRET_TOKEN }}
-         
+         - name: Publish code coverage
+      uses: paambaati/codeclimate-action@v3.0.0
+      env:
+         CC_TEST_REPORTER_ID: ${{secrets.SECRET_TOKEN}}
+         JACOCO_SOURCE_PATH: app/src/main/java
+      with:
+         coverageCommand: make report
+         coverageLocations: ${{github.workspace}}/app/build/jacocoReport/test/jacocoTestReport.xml:jacoco
       
       # - name: Publish code coverage
       #   uses: paambaati/codeclimate-action@v3.0.0
