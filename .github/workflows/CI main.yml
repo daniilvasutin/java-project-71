@@ -22,6 +22,10 @@ jobs:
         with:
           arguments: build
           build-root-directory: app
+      - name: Publish code coverage
+      uses: paambaati/codeclimate-action@v3.0.0
+      env:
+         SECRET_TOKEN: ${{secrets.SECRET_TOKEN}}
       #  - name: Publish code coverage
       #uses: paambaati/codeclimate-action@v3.0.0
       #env:
