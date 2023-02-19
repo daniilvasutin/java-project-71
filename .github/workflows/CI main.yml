@@ -23,11 +23,16 @@ jobs:
           arguments: build
           build-root-directory: app
       - name: Publish code coverage
-      uses: paambaati/codeclimate-action@v3.0.0
-      env:
-          SECRET_TOKEN_ID: ${{ secrets.SECRET_TOKEN }}
-      with:
-          coverageCommand: make report
+      - name: Test & publish code coverage
+        # Publish code coverage on Code Climate
+        # https://github.com/paambaati/codeclimate-action
+        uses: paambaati/codeclimate-action@v3.0.0
+        # Add Code Climate secret key
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: make test-coverage
+          debug: true
       #  - name: Publish code coverage
       #uses: paambaati/codeclimate-action@v3.0.0
       #env:
