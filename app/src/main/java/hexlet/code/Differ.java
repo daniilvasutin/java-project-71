@@ -1,25 +1,15 @@
 package hexlet.code;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
 public class Differ {
-    public static String generate(Path file1, Path file2) throws Exception {
+    public static String generate(List<Map<String, Object>> parsedFiles) throws Exception {
 
-        byte[] fileContents1 = Files.readAllBytes(file1);
-        byte[] fileContents2 = Files.readAllBytes(file2);
-
-        ObjectMapper mapper = new ObjectMapper();
-        Map<String, Object> map1 = mapper.readValue(fileContents1, Map.class);
-        Map<String, Object> map2 = mapper.readValue(fileContents2, Map.class);
-
-        List<Item<String, Object>> difList = findDiff(map1, map2);
+        List<Item<String, Object>> difList = findDiff(parsedFiles.get(0), parsedFiles.get(1));
 
         List<Item<String, Object>> sortedDifList = difList.stream()
                 .sorted(Comparator.comparing(Item::getKey)).toList();

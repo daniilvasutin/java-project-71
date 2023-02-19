@@ -1,4 +1,5 @@
 import hexlet.code.Differ;
+import hexlet.code.Parser;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -32,10 +33,22 @@ public class TestApp {
 
 
     @Test
-    public void testGenDiff() throws Exception {
+    public void testGenDiffForJSON() throws Exception {
 
-        String str1 = Differ.generate(file1, file2);
-        assertEquals(str1, Differ.generate(file1, file2));
+        file1 = Path.of("file1.json");
+        file2 = Path.of("file2.json");
+        String str1 = Differ.generate(Parser.parseFile(file1, file2));
+        assertEquals(str1, Differ.generate(Parser.parseFile(file1, file2)));
+    }
+
+//проверить парсер
+    @Test
+    public void testGenDiffForYML() throws Exception {
+
+        file1 = Path.of("file1.yml");
+        file2 = Path.of("file2.yml");
+        String str1 = Differ.generate(Parser.parseFile(file1, file2));
+        assertEquals(str1, Differ.generate(Parser.parseFile(file1, file2)));
     }
 
     @Test
