@@ -9,3 +9,5 @@
 [![asciicast](https://asciinema.org/a/W0WvkmPW27ABjBRtnS1jQZJny.svg)](https://asciinema.org/a/W0WvkmPW27ABjBRtnS1jQZJny)
 <br> stap 7
 [![asciicast](https://asciinema.org/a/5FBpNGIliuuOgSzTU52zrE0t9.svg)](https://asciinema.org/a/5FBpNGIliuuOgSzTU52zrE0t9)
+<br> stap 8
+[![asciicast](https://asciinema.org/a/Nk8lzyCETgAs35tNA0ODfsMEn.svg)](https://asciinema.org/a/Nk8lzyCETgAs35tNA0ODfsMEn)
