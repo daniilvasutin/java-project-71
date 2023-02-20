@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class Formatter {
 
-    public static String convertToFormatString(Map<String, Item> differ, String format) throws JsonProcessingException {
+    public static String convertToFormat(Map<String, Item> differ, String format) throws JsonProcessingException {
 
         return switch (format) {
             case "stylish" -> Stylish.makeStylish(differ);

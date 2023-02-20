@@ -1,6 +1,5 @@
 package hexlet.code;
 
-
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashSet;
@@ -9,6 +8,10 @@ import java.util.Set;
 import java.util.TreeMap;
 
 public class Differ {
+
+    public static String generate(Path file1, Path file2) throws Exception {
+        return generate(file1, file2, "stylish");
+    }
 
     public static String generate(Path file1, Path file2, String format) throws Exception {
 
@@ -26,7 +29,7 @@ public class Differ {
 
         Map<String, Item> differ = findDiff(map1, map2);
 
-        return Formatter.convertToFormatString(differ, format);
+        return Formatter.convertToFormat(differ, format);
     }
 
     private static Map<String, Item> findDiff(Map<String, Object> map1, Map<String, Object> map2) {

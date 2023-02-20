@@ -27,6 +27,7 @@ public class TestApp {
 
         String fileContent = Files.readString(Path.of("src/test/resources/TestStylish.txt"));
 
+        assertEquals(fileContent, Differ.generate(file1, file2));
         assertEquals(fileContent, Differ.generate(file1, file2, format));
         assertThat(Differ.generate(file1, file2, format)).isEqualTo(fileContent);
     }
