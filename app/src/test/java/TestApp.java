@@ -1,22 +1,14 @@
 import hexlet.code.Differ;
-import hexlet.code.Parser;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
+import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.ListIterator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class TestApp {
-
-    private static ArrayList<Integer> testInstance;
-    private static ListIterator<Integer> listIterator;
 
     private static Path file1;
     private static Path file2;
@@ -24,63 +16,53 @@ public class TestApp {
     @BeforeAll
     public static void setUp() {
 
-        file1 = Path.of("file1.json");
-        file2 = Path.of("file2.json");
-
-        testInstance = new ArrayList<>();
-        listIterator = testInstance.listIterator();
-    }
-
-
-    @Test
-    public void testGenDiffForJSON() throws Exception {
-
-        file1 = Path.of("file1.json");
-        file2 = Path.of("file2.json");
-//        String str1 = Differ.generate(Parser.parseFile(file1, file2));
-//        assertEquals(str1, Differ.generate(Parser.parseFile(file1, file2)));
-    }
-
-// проверить парсер
-// Напишите тесты. Тесты на вложенные структуры полностью покрывают плоские. >
-// Последние можно уже не тестировать
-
-    @Test
-    public void testGenDiffForYML() throws Exception {
-
-        file1 = Path.of("file1.yml");
-        file2 = Path.of("file2.yml");
-//        String str1 = Differ.generate(Parser.parseFile(file1, file2));
-//        assertEquals(str1, Differ.generate(Parser.parseFile(file1, file2)));
+        file1 = Path.of("src/test/resources/file1long.json");
+        file2 = Path.of("src/test/resources/file2long.json");
     }
 
     @Test
-    public void testFilePath() {
+    public void testDiffJsonFormatStylish() throws Exception {
 
-        String path = "src/test/resources";
+        String format = "stylish";
 
-        File file = new File(path);
-        String absolutePath = file.getAbsolutePath();
+        String fileContent = Files.readString(Path.of("src/test/resources/TestStylish.txt"));
 
-        System.out.println(absolutePath);
-
-        assertTrue(absolutePath.endsWith("src/test/resources"));
+        assertEquals(fileContent, Differ.generate(file1, file2, format));
+        assertThat(Differ.generate(file1, file2, format)).isEqualTo(fileContent);
     }
 
     @Test
-    public void testToArrayWhenInputArrayHaveSizeOne() {
+    public void testDiffJsonFormatPlain() throws Exception {
 
-        testInstance.add(1);
-        testInstance.add(2);
-        testInstance.add(3);
+        String format = "plain";
 
-        final Integer[] input = new Integer[1];
+        String fileContent = Files.readString(Path.of("src/test/resources/TestPlain.txt"));
+        String resultOfDiff = Differ.generate(file1, file2, format);
 
-        final Integer[] result = testInstance.toArray(input);
-        assertNotEquals(input, result);
-        assertEquals((Integer) 1, result[0]);
-        assertEquals((Integer) 2, result[1]);
-        assertEquals((Integer) 3, result[2]);
-        assertEquals(3, result.length);
+        assertEquals(fileContent, resultOfDiff);
+    }
+
+    @Test
+    public void testDiffJsonFormatJson() throws Exception {
+
+        String format = "json";
+
+        String fileContent = Files.readString(Path.of("src/test/resources/TestJson.txt"));
+        String resultOfDiff = Differ.generate(file1, file2, format);
+
+        assertEquals(fileContent, resultOfDiff);
+    }
+
+    @Test
+    public void testDiffYMLFormatPlain() throws Exception {
+
+        file1 = Path.of("src/test/resources/file1long.yml");
+        file2 = Path.of("src/test/resources/file2long.yml");
+        String format = "plain";
+
+        String fileContent = Files.readString(Path.of("src/test/resources/TestPlain.txt"));
+        String resultOfDiff = Differ.generate(file1, file2, format);
+
+        assertEquals(fileContent, resultOfDiff);
     }
 }

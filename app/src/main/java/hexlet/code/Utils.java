@@ -1,6 +1,8 @@
 package hexlet.code;
 
-class Utils {
+import java.nio.file.Path;
+
+public class Utils {
     public static final boolean equalsWithNulls(Object a, Object b) {
         if (a == b) {
             return true;
@@ -9,5 +11,10 @@ class Utils {
             return false;
         }
         return a.equals(b);
+    }
+
+    public static final String getFileExtension(Path pathToFile) {
+        int index = pathToFile.toString().lastIndexOf('.');
+        return index > 0 ? pathToFile.toString().substring(index + 1) : "";
     }
 }

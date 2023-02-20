@@ -1,26 +1,20 @@
 package hexlet.code;
 
-public class Item<K, V> {
-    public K key;
-    public V currentValue;
-    public V oldValue;
+public class Item {
+    public Object oldValue;
+    public Object newValue;
     public String status;
 
-    public Item(K item, V o, String status) {
-        this.key = item;
-        this.currentValue = o;
+    public Item(Object o, String status) {
+        this.newValue = o;
+        this.oldValue = null;
         this.status = status;
     }
 
-    public Item(K item, V newValue, V oldValue, String status) {
-        this.key = item;
-        this.currentValue = newValue;
+    public Item(Object oldValue, Object newValue, String status) {
         this.oldValue = oldValue;
+        this.newValue = newValue;
         this.status = status;
-    }
-
-
-    public K getKey() {
-        return key;
     }
 }
+

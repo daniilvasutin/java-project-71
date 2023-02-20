@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'application'
-//    id 'checkstyle'
+    id 'checkstyle'
     id 'jacoco'
 }
 
@@ -36,6 +36,7 @@ dependencies {
     implementation 'org.wso2.orbit.com.fasterxml.jackson.core:jackson-databind:2.14.1.wso2v1'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.14.1'
     implementation 'com.fasterxml.jackson.core:jackson-annotations:${jackson.version}'
+    testImplementation 'org.assertj:assertj-core:3.11.1'
 
     implementation 'info.picocli:picocli:4.7.1'
 }
