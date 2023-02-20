@@ -15,12 +15,12 @@ import java.util.concurrent.Callable;
 public class App implements Callable<Integer> {
 
     @Parameters(index = "0", paramLabel = "filepath1",
-            description = "path to first file", defaultValue = "file1long.yml")
+            description = "path to first file", defaultValue = "file1long.json")
             //"src/test/resources/file1.json")
     ///Users/daniilvasutin/java-project-71/app/src/main/java/hexlet/code/exFile1.json
     private static Path file1;
     @Parameters(index = "1", paramLabel = "filepath2",
-            description = "path to second file", defaultValue = "file2long.yml")
+            description = "path to second file", defaultValue = "file2long.json")
     private static Path file2;
 
     @Option(names = {"-f", "--format"}, description = "output format [default: stylish]", defaultValue = "stylish")
@@ -29,8 +29,9 @@ public class App implements Callable<Integer> {
     @Override
     public Integer call() throws Exception { // your business logic goes here...
 
+//        format = "plain";
         List<Map<String, Object>> parsedFiles = Parser.parseFile(file1, file2);
-        String differsOfFiles = Differ.generate(parsedFiles);
+        String differsOfFiles = Differ.generateMap(parsedFiles, format);
         System.out.println(differsOfFiles);
 
         return 0;
