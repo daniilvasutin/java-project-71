@@ -9,20 +9,20 @@ import java.util.TreeMap;
 
 public class Differ {
 
-    public static String generate(Path file1, Path file2) throws Exception {
+    public static String generate(String file1, String file2) throws Exception {
         return generate(file1, file2, "stylish");
     }
 
-    public static String generate(Path file1, Path file2, String format) throws Exception {
+    public static String generate(String file1, String file2, String format) throws Exception {
 
-        Path absolutPath1 = file1.toAbsolutePath().normalize();
-        Path absolutPath2 = file2.toAbsolutePath().normalize();
+//        Path absolutPath1 = file1.toAbsolutePath().normalize();
+//        Path absolutPath2 = file2.toAbsolutePath().normalize();
 
-        byte[] fileContents1 = Files.readAllBytes(absolutPath1);
-        byte[] fileContents2 = Files.readAllBytes(absolutPath2);
+        byte[] fileContents1 = Files.readAllBytes(Path.of(file1));
+        byte[] fileContents2 = Files.readAllBytes(Path.of(file2));
 
-        String extension1 = Utils.getFileExtension(absolutPath1);
-        String extension2 = Utils.getFileExtension(absolutPath2);
+        String extension1 = Utils.getFileExtension(Path.of(file1));
+        String extension2 = Utils.getFileExtension(Path.of(file2));
 
         Map<String, Object> map1 = Parser.parseFile(fileContents1, extension1);
         Map<String, Object> map2 = Parser.parseFile(fileContents2, extension2);

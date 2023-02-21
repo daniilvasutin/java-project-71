@@ -12,8 +12,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class TestApp {
 
-    private static Path file1;
-    private static Path file2;
+    private static String file1;
+    private static String file2;
 
     public static String getPath(String fileName) {
         return Paths.get("src", "test", "resources", fileName)
@@ -27,8 +27,8 @@ public class TestApp {
 
     @BeforeAll
     public static void setUp() {
-        file1 = Path.of(getPath("file1long.json"));
-        file2 = Path.of(getPath("file2long.json"));
+        file1 = getPath("file1long.json");
+        file2 = getPath("file2long.json");
     }
 
     @Test
@@ -69,8 +69,8 @@ public class TestApp {
     @Test
     public void testDiffYMLFormatPlain() throws Exception {
 
-        file1 = Path.of(getPath("file1long.yml"));
-        file2 = Path.of(getPath("file2long.yml"));
+        file1 = getPath("file1long.yml");
+        file2 = getPath("file2long.yml");
         String format = "plain";
 
         String fileContent = getContent("TestPlain.txt");
