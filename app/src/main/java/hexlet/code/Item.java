@@ -5,40 +5,40 @@ public final class Item {
     private Object newValue;
     private String status;
 
-    public Item(Object o, String status) {
+    public Item(Object o, String newStatus) {
         this.setNewValue(o);
         this.setOldValue(null);
-        this.setStatus(status);
+        this.setStatus(newStatus);
     }
 
-    public Item(Object oldValue, Object newValue, String status) {
-        this.setOldValue(oldValue);
-        this.setNewValue(newValue);
-        this.setStatus(status);
+    public Item(Object o1, Object o2, String newStatus) {
+        this.setOldValue(o1);
+        this.setNewValue(o2);
+        this.setStatus(newStatus);
     }
 
     public Object getOldValue() {
         return oldValue;
     }
 
-    public void setOldValue(Object oldValue) {
-        this.oldValue = oldValue;
+    public void setOldValue(Object o) {
+        this.oldValue = o;
     }
 
     public Object getNewValue() {
         return newValue;
     }
 
-    public void setNewValue(Object newValue) {
-        this.newValue = newValue;
+    public void setNewValue(Object o) {
+        this.newValue = o;
     }
 
     public String getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatus(String newStatus) {
+        this.status = newStatus;
     }
 }
 
