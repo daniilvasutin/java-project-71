@@ -22,7 +22,7 @@ public class TestApp {
 
     public final String getContent(String fileName) throws IOException {
         Path filePath = Path.of(getPath(fileName));
-        return Files.readString(filePath).trim();
+        return Files.readString(filePath);
     }
 
     @BeforeAll
@@ -39,7 +39,7 @@ public class TestApp {
         String fileContent = getContent("TestStylish.txt");
         String resultOfDiff = Differ.generate(file1, file2, format);
 
-       // assertEquals(fileContent, Differ.generate(file1, file2));
+        assertEquals(fileContent, Differ.generate(file1, file2));
         assertEquals(fileContent, resultOfDiff);
         assertThat(resultOfDiff).isEqualTo(fileContent);
     }
