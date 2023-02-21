@@ -51,7 +51,8 @@ public class TestApp {
         String fileContent = getContent("TestPlain.txt");
         String resultOfDiff = Differ.generate(file1, file2, format);
 
-        assertEquals(fileContent, resultOfDiff);
+        assertThat(resultOfDiff).isEqualTo(fileContent);
+       // assertEquals(fileContent, resultOfDiff);
     }
 
     @Test
