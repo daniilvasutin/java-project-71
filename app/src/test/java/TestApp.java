@@ -22,7 +22,7 @@ public class TestApp {
 
     public final String getContent(String fileName) throws IOException {
         Path filePath = Path.of(getPath(fileName));
-        return Files.readString(filePath);
+        return Files.readString(filePath).trim();
     }
 
     @BeforeAll
