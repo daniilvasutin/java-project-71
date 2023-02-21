@@ -11,18 +11,18 @@ public class Plain {
         StringBuilder result = new StringBuilder();
         for (var item : differ.entrySet()) {
 
-            switch (item.getValue().status) {
+            switch (item.getValue().getStatus()) {
                 case "REMOVED" -> result.append("Property ").append("'").append(item.getKey())
                         .append("' ").append("was removed").append("\n");
                 case "ADD" -> result.append("Property ").append("'").append(item.getKey())
                         .append("' ").append("was added with value: ")
-                        .append(checkValue(item.getValue().newValue)).append("\n");
+                        .append(checkValue(item.getValue().getNewValue())).append("\n");
                 case "CHANGED" -> result.append("Property ").append("'").append(item.getKey())
                         .append("' ").append("was updated. From ")
-                        .append(checkValue(item.getValue().oldValue)).append(" to ")
-                        .append(checkValue(item.getValue().newValue)).append("\n");
+                        .append(checkValue(item.getValue().getOldValue())).append(" to ")
+                        .append(checkValue(item.getValue().getNewValue())).append("\n");
                 case "UNCHANGED" -> result.append("");
-                default -> throw new IllegalStateException("Unexpected status: " + item.getValue().status);
+                default -> throw new IllegalStateException("Unexpected status: " + item.getValue().getStatus());
             }
         }
 

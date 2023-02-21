@@ -11,28 +11,28 @@ public class Stylish {
 
         for (var item : difMap.entrySet()) {
 
-            switch (item.getValue().status) {
+            switch (item.getValue().getStatus()) {
                 case "REMOVED" -> result.append(" ".repeat(2)).append("-")
                         .append(" ").append(item.getKey())
-                        .append(": ").append(item.getValue().newValue)
+                        .append(": ").append(item.getValue().getNewValue())
                         .append("\n");
                 case "UNCHANGED" -> result.append(" ".repeat(2)).append(" ")
                         .append(" ").append(item.getKey())
-                        .append(": ").append(item.getValue().newValue)
+                        .append(": ").append(item.getValue().getNewValue())
                         .append("\n");
                 case "CHANGED" ->
                     result.append(" ".repeat(2))
                             .append("-").append(" ").append(item.getKey())
-                            .append(": ").append(item.getValue().oldValue)
+                            .append(": ").append(item.getValue().getOldValue())
                             .append("\n").append(" ".repeat(2))
                             .append("+").append(" ").append(item.getKey())
-                            .append(": ").append(item.getValue().newValue)
+                            .append(": ").append(item.getValue().getNewValue())
                             .append("\n");
                 case "ADD" -> result.append(" ".repeat(2))
                         .append("+").append(" ")
                         .append(item.getKey()).append(": ")
-                        .append(item.getValue().newValue).append("\n");
-                default -> throw new IllegalStateException("Unexpected status: " + item.getValue().status);
+                        .append(item.getValue().getNewValue()).append("\n");
+                default -> throw new IllegalStateException("Unexpected status: " + item.getValue().getStatus());
             }
         }
         result.append("}");
