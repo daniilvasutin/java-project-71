@@ -35,7 +35,7 @@ public class Stylish {
                 default -> throw new IllegalStateException("Unexpected status: " + item.getValue().status);
             }
         }
-        result.append("}\n");
+        result.append("}");
 
         return result.toString();
     }
