@@ -26,7 +26,7 @@ public class Plain {
             }
         }
 
-        return result.toString();
+        return result.toString().trim();
     }
 
     private static String checkValue(Object item) {
