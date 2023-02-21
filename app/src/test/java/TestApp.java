@@ -27,8 +27,8 @@ public class TestApp {
 
     @BeforeAll
     public static void setUp() {
-        file1 = getPath("file1long.json");
-        file2 = getPath("file2long.json");
+        file1 = getPath("file1.json");
+        file2 = getPath("file2.json");
     }
 
     @Test
@@ -69,8 +69,8 @@ public class TestApp {
     @Test
     public void testDiffYMLFormatPlain() throws Exception {
 
-        file1 = getPath("file1long.yml");
-        file2 = getPath("file2long.yml");
+        file1 = getPath("file1.yml");
+        file2 = getPath("file2.yml");
         String format = "plain";
 
         String fileContent = getContent("TestPlain.txt");
