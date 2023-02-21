@@ -12,13 +12,13 @@ import java.util.concurrent.Callable;
 public class App implements Callable<Integer> {
 
     @Parameters(index = "0", paramLabel = "filepath1",
-            description = "path to first file", defaultValue = "src/test/resources/file1.json")
+            description = "path to first file")//, defaultValue = "src/test/resources/file1.json")
     private static String filepath1;
     @Parameters(index = "1", paramLabel = "filepath2",
-            description = "path to second file", defaultValue = "src/test/resources/file2.json")
+            description = "path to second file")//, defaultValue = "src/test/resources/file2.json")
     private static String filepath2;
 
-    @Option(names = {"-f", "--format"}, description = "output format [default: stylish]", defaultValue = "plain")
+    @Option(names = {"-f", "--format"}, description = "output format [default: stylish]", defaultValue = "stylish")
     private String format;
 
     @Override
