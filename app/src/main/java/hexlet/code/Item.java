@@ -1,6 +1,6 @@
 package hexlet.code;
 
-public class Item {
+public final class Item {
     private Object oldValue;
     private Object newValue;
     private String status;
