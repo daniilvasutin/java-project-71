@@ -37,6 +37,6 @@ public class Stylish {
         }
         result.append("}");
 
-        return result.toString().trim();
+        return result.toString();
     }
 }

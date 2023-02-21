@@ -37,10 +37,11 @@ public class TestApp {
         String format = "stylish";
 
         String fileContent = getContent("TestStylish.txt");
+        String resultOfDiff = Differ.generate(file1, file2, format);
 
-        assertEquals(fileContent, Differ.generate(file1, file2));
-        assertEquals(fileContent, Differ.generate(file1, file2, format));
-        assertThat(Differ.generate(file1, file2, format)).isEqualTo(fileContent);
+       // assertEquals(fileContent, Differ.generate(file1, file2));
+        assertEquals(fileContent, resultOfDiff);
+        assertThat(resultOfDiff).isEqualTo(fileContent);
     }
 
     @Test
