@@ -1,20 +1,20 @@
 package hexlet.code;
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class Utils {
-    public static final boolean equalsWithNulls(Object a, Object b) {
-        if (a == b) {
-            return true;
+
+    public static String getFileExtension(String pathToFile) throws IOException {
+        int index = pathToFile.lastIndexOf('.');
+        if (index > 0) {
+            return pathToFile.substring(index + 1);
         }
-        if ((a == null) || (b == null)) {
-            return false;
-        }
-        return a.equals(b);
+        throw new IOException("Path does not have extension");
     }
 
-    public static final String getFileExtension(Path pathToFile) {
-        int index = pathToFile.toString().lastIndexOf('.');
-        return index > 0 ? pathToFile.toString().substring(index + 1) : "";
+    public static String getContent(String filepath1) throws IOException {
+        return Files.readString(Path.of(filepath1));
     }
 }

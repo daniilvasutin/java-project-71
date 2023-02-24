@@ -1,6 +1,7 @@
 package hexlet.code.formatters;
 
 import hexlet.code.Item;
+
 import java.util.Map;
 
 public class Stylish {
@@ -12,15 +13,15 @@ public class Stylish {
         for (var item : difMap.entrySet()) {
 
             switch (item.getValue().getStatus()) {
-                case "REMOVED" -> result.append(" ".repeat(2)).append("-")
+                case REMOVED -> result.append(" ".repeat(2)).append("-")
                         .append(" ").append(item.getKey())
                         .append(": ").append(item.getValue().getNewValue())
                         .append("\n");
-                case "UNCHANGED" -> result.append(" ".repeat(2)).append(" ")
+                case UNCHANGED -> result.append(" ".repeat(2)).append(" ")
                         .append(" ").append(item.getKey())
                         .append(": ").append(item.getValue().getNewValue())
                         .append("\n");
-                case "CHANGED" ->
+                case CHANGED ->
                     result.append(" ".repeat(2))
                             .append("-").append(" ").append(item.getKey())
                             .append(": ").append(item.getValue().getOldValue())
@@ -28,7 +29,7 @@ public class Stylish {
                             .append("+").append(" ").append(item.getKey())
                             .append(": ").append(item.getValue().getNewValue())
                             .append("\n");
-                case "ADD" -> result.append(" ".repeat(2))
+                case ADD -> result.append(" ".repeat(2))
                         .append("+").append(" ")
                         .append(item.getKey()).append(": ")
                         .append(item.getValue().getNewValue()).append("\n");

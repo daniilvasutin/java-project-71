@@ -12,16 +12,16 @@ public class Plain {
         for (var item : differ.entrySet()) {
 
             switch (item.getValue().getStatus()) {
-                case "REMOVED" -> result.append("Property ").append("'").append(item.getKey())
+                case REMOVED -> result.append("Property ").append("'").append(item.getKey())
                         .append("' ").append("was removed").append("\n");
-                case "ADD" -> result.append("Property ").append("'").append(item.getKey())
+                case ADD -> result.append("Property ").append("'").append(item.getKey())
                         .append("' ").append("was added with value: ")
                         .append(checkValue(item.getValue().getNewValue())).append("\n");
-                case "CHANGED" -> result.append("Property ").append("'").append(item.getKey())
+                case CHANGED -> result.append("Property ").append("'").append(item.getKey())
                         .append("' ").append("was updated. From ")
                         .append(checkValue(item.getValue().getOldValue())).append(" to ")
                         .append(checkValue(item.getValue().getNewValue())).append("\n");
-                case "UNCHANGED" -> result.append("");
+                case UNCHANGED -> result.append("");
                 default -> throw new IllegalStateException("Unexpected status: " + item.getValue().getStatus());
             }
         }

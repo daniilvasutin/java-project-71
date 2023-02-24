@@ -3,15 +3,15 @@ package hexlet.code;
 public final class Item {
     private Object oldValue;
     private Object newValue;
-    private String status;
+    private Status status;
 
-    public Item(Object o, String newStatus) {
+    public Item(Object o, Status newStatus) {
         this.setNewValue(o);
         this.setOldValue(null);
         this.setStatus(newStatus);
     }
 
-    public Item(Object o1, Object o2, String newStatus) {
+    public Item(Object o1, Object o2, Status newStatus) {
         this.setOldValue(o1);
         this.setNewValue(o2);
         this.setStatus(newStatus);
@@ -33,12 +33,14 @@ public final class Item {
         this.newValue = o;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String newStatus) {
+    public void setStatus(Status newStatus) {
         this.status = newStatus;
     }
 }
+
+
 
