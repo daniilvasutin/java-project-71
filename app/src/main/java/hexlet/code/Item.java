@@ -5,14 +5,14 @@ public final class Item {
     private Object newValue;
     private Status status;
 
-    public Item(Object newValue, Status newStatus) {
-        this.newValue = newValue;
+    public Item(Object newValue1, Status newStatus) {
+        this.newValue = newValue1;
         this.status = newStatus;
     }
 
-    public Item(Object oldValue, Object newValue, Status newStatus) {
-        this.oldValue = oldValue;
-        this.newValue = newValue;
+    public Item(Object oldValue1, Object newValue1, Status newStatus) {
+        this.oldValue = oldValue1;
+        this.newValue = newValue1;
         this.status = newStatus;
     }
 
@@ -20,24 +20,12 @@ public final class Item {
         return oldValue;
     }
 
-    public void setOldValue(Object o) {
-        this.oldValue = o;
-    }
-
     public Object getNewValue() {
         return newValue;
     }
 
-    public void setNewValue(Object o) {
-        this.newValue = o;
-    }
-
     public Status getStatus() {
         return status;
-    }
-
-    public void setStatus(Status newStatus) {
-        this.status = newStatus;
     }
 }
 
