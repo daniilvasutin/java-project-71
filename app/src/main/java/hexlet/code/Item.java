@@ -5,16 +5,15 @@ public final class Item {
     private Object newValue;
     private Status status;
 
-    public Item(Object o, Status newStatus) {
-        this.setNewValue(o);
-        this.setOldValue(null);
-        this.setStatus(newStatus);
+    public Item(Object newValue, Status newStatus) {
+        this.newValue = newValue;
+        this.status = newStatus;
     }
 
-    public Item(Object o1, Object o2, Status newStatus) {
-        this.setOldValue(o1);
-        this.setNewValue(o2);
-        this.setStatus(newStatus);
+    public Item(Object oldValue, Object newValue, Status newStatus) {
+        this.oldValue = oldValue;
+        this.newValue = newValue;
+        this.status = newStatus;
     }
 
     public Object getOldValue() {

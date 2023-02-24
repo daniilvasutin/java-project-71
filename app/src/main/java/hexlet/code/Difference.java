@@ -20,20 +20,15 @@ public class Difference {
             Object oldValue = map1.get(key);
             Object newValue = map2.get(key);
 
-            if (map1.containsKey(key)) {
-                if (Objects.equals(oldValue, newValue)) {
-                    differ.put(key, new Item(oldValue, newValue, Status.UNCHANGED));
-                } else {
-                    differ.put(key, new Item(oldValue, newValue, Status.CHANGED));
-                }
-            }
             if (!map1.containsKey(key)) {
                 differ.put(key, new Item(newValue, Status.ADD));
-            }
-            if (!map2.containsKey(key)) {
+            } else if (!map2.containsKey(key)) {
                 differ.put(key, new Item(oldValue, Status.REMOVED));
+            } else if (Objects.equals(oldValue, newValue)) {
+                differ.put(key, new Item(oldValue, newValue, Status.UNCHANGED));
+            } else {
+                differ.put(key, new Item(oldValue, newValue, Status.CHANGED));
             }
-
         }
         return differ;
     }
