@@ -4,8 +4,8 @@ import java.util.Map;
 
 public class Differ {
 
-    public static String generate(String file1, String file2) throws Exception {
-        return generate(file1, file2, "stylish");
+    public static String generate(String filepath1, String filepath2) throws Exception {
+        return generate(filepath1, filepath2, "stylish");
     }
 
     public static String generate(String filepath1, String filepath2, String format) throws Exception {
